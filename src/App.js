@@ -1,23 +1,29 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { loginsuccess } from './modules/login';
+import { login } from './modules/login';
 // 함수형 App 컴포넌트
 const App = () => {
-  console.log(1);
   const message = useSelector(state => state.message);
 
   const dispatch = useDispatch();
 
+  // export const login = () =>  axios.post('/').then(response=>{
+  //   console.log(response.data.status);
+  // });
+
   // 이벤트 핸들러 함수
+  // const onClick = () => {
+  //   axios.post('/')
+  //   .then(response=>{
+  //     console.log(response.data.status);
+  //     dispatch(loginsuccess({status: response.data.status}));
+  //   });
+  // }
   const onClick = () => {
-    axios.post('/')
-    .then(response=>{
-      console.log(response.data.status);
-      dispatch(loginsuccess({status: response.data.status}));
-    });
+      dispatch(login());
   }
-  
+
   // view 렌더링
   return (
     <div>
